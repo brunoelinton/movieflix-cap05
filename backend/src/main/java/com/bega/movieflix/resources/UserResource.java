@@ -1,6 +1,6 @@
 package com.bega.movieflix.resources;
 
-import com.bega.movieflix.dtos.ProfileDTO;
+import com.bega.movieflix.dtos.UserDTO;
 import com.bega.movieflix.entities.User;
 import com.bega.movieflix.services.AuthService;
 import com.bega.movieflix.services.UserService;
@@ -20,9 +20,9 @@ public class UserResource {
     }
 
     @GetMapping(value = "/profile")
-    public ResponseEntity<ProfileDTO> getCurrentProfile() {
+    public ResponseEntity<UserDTO> getCurrentProfile() {
         User user = authService.authenticated();
-        ProfileDTO dto = new ProfileDTO(user);
+        UserDTO dto = new UserDTO(user);
         return ResponseEntity.ok().body(dto);
     }
 }
