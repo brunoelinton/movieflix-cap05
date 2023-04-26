@@ -2,9 +2,7 @@ package com.bega.movieflix.services;
 
 import com.bega.movieflix.dtos.MovieDTO;
 import com.bega.movieflix.dtos.ReviewDTO;
-import com.bega.movieflix.entities.Genre;
 import com.bega.movieflix.entities.Movie;
-import com.bega.movieflix.entities.Review;
 import com.bega.movieflix.repositories.GenreRepository;
 import com.bega.movieflix.repositories.MovieRepository;
 import com.bega.movieflix.services.exceptions.ResourceNotFoundException;
@@ -32,14 +30,6 @@ public class MovieService {
     public MovieDTO findById(Long id) {
         Optional<Movie> movieOptional = movieRepository.findById(id);
         Movie movie = movieOptional.orElseThrow(() -> new ResourceNotFoundException("Movie not found."));
-        System.out.println(movie.getId());
-        System.out.println(movie.getTitle());
-        System.out.println(movie.getSubTitle());
-        System.out.println(movie.getYear());
-        System.out.println(movie.getImgUrl());
-        System.out.println(movie.getSynopsis());
-        System.out.println(movie.getGenre().getId());
-        System.out.println(movie.getGenre().getName());
         return new MovieDTO(movie);
     }
 

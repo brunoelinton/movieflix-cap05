@@ -34,7 +34,6 @@ public class MovieResource {
     public ResponseEntity<Page<MovieDTO>> findAllMoviesByGenre(
             @RequestParam(name = "genreId", defaultValue = "0") Long genreId,
             Pageable pageable) {
-        System.out.println("genreId = " + genreId);
         return ResponseEntity.ok().body(movieService.findAllMoviesByGenre(genreId, pageable));
     }
 }
